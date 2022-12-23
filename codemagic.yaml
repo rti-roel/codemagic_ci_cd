@@ -22,6 +22,13 @@ workflows:
             cd ./codemagic_app &&
             flutter build apk --release
         artifacts:
-            - codemagic_app/build/**/outputs/**/*.aab
+            - codemagic_app/build/**/outputs/**/*.apk
             - codemagic_app/build/**/outputs/**/mapping.txt
             - codemagic_app/flutter_drive.log
+        publishing:
+          email:
+            recipients:
+              - roel@rtiblockchain.nl
+            notify:
+              success: true
+              failure: false
