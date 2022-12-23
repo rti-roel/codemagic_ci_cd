@@ -13,12 +13,15 @@ workflows:
 #        - name: Set up local.properties
 #          script: |
 #              echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
+        - name: Navigate to project folder
+          script: |
+            cd codemagic_app
         - name: Get Flutter packages
           script: |
-              flutter packages pub get
+            flutter packages pub get
         - name: Build APK with Flutter
           script: |
-              flutter build apk --release
+            flutter build apk --release
         artifacts:
             - build/**/outputs/**/*.aab
             - build/**/outputs/**/mapping.txt
