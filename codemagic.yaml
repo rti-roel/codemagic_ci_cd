@@ -14,7 +14,7 @@ workflows:
             - push
             - pull_request
           branch_patterns: # Include or exclude watched branches
-            - pattern: '/main'
+            - pattern: 'main'
               include: true
               source: true
           tag_patterns: # Include or exlude watched tag labels
