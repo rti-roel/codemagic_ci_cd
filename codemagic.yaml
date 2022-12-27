@@ -9,6 +9,20 @@ workflows:
                 - module_credentials
             vars:
                 PACKAGE_NAME: "roel.codemagic_ci_cd"
+        triggering:
+          events: # List the events that trigger builds
+            - push
+            - pull_request
+          branch_patterns: # Include or exclude watched branches
+            - pattern: 'master'
+              include: true
+              source: true
+          tag_patterns: # Include or exlude watched tag labels
+            - pattern: excluded-tag
+              include: false
+            - pattern: included-tag
+              include: true
+          cancel_previous_builds: true
         scripts:
         - name: Set up local.properties
           script: |
